@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserRecipesService } from '../services/user-recipes.service';
 import { ToastrService } from 'ngx-toastr';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-fav',
@@ -14,7 +13,6 @@ export class FavComponent implements OnInit {
   constructor(
     private _UserRecipesService: UserRecipesService,
     private _Toasr: ToastrService,
-    private _HttpClient: HttpClient
   ) { 
   }
   
