@@ -1,0 +1,17 @@
+<div class="text-end" mat-dialog-content>
+    <div class="navbar d-flex justify-content-between align-items-center ">    
+        <h6 class="mt-1" style="color: #494949;">{{data.name}}</h6>
+        <mat-icon mat-dialog-close=""><i class="fa-regular fa-circle-xmark text-danger"></i></mat-icon>
+    </div>
+    <div class="text-center">
+        <div class="img">
+            <img class="w-50" [src]="imageSrc + data.imagePath" alt="">    
+        </div>
+        <p class="text-black-50">{{data.description}}</p>
+    </div>
+</div>
+<div mat-dialog-actions class="justify-content-end p-4 border-top">
+    <button class="btn btn-outline-success" [mat-dialog-close]="data" name="categoryName">
+        Favorite
+    </button>
+</div>

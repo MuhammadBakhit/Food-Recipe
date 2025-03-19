@@ -1,0 +1,15 @@
+<div class="text-end" mat-dialog-content>
+    <mat-icon mat-dialog-close=""><i class="fa-regular fa-circle-xmark text-danger"></i></mat-icon>
+    <div class="text-center">
+        <div class="img">
+            <img class="" src="../../../../assets/imags/no-data.svg" alt="">    
+        </div>
+        <h6 class="mt-1" style="color: #494949;">Delete This Category {{data.name}} ?</h6>
+        <p class="text-black-50">are you sure you want to delete this item ? if you are sure just <br> click on delete it {{data.name}}</p>
+    </div>
+</div>
+<div mat-dialog-actions class="justify-content-end p-4 border-top">
+    <button class="btn btn-outline-danger" [mat-dialog-close]="data" name="categoryName">
+        Delete this item
+    </button>
+</div>

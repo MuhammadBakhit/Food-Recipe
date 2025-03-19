@@ -1,0 +1,86 @@
+<div class="dashboard-container">
+    <div class="sidebar">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="profile-container">
+        <div class="profile-card">
+            <div class="profile-image">
+                <img [src]="imageUrl" alt="User Image">
+                <div class="profile-info">
+                    <h2>{{ user?.userName || 'Guest User' }}</h2>
+                    <p class="email">{{ user?.email || 'example@email.com' }}</p>
+                </div>
+            </div>
+
+            <div class="profile-info">
+                <p><strong>Role:</strong> {{ user?.group?.name || 'N/A' }}</p>
+                <p><strong>Country:</strong> {{ user?.country || 'N/A' }}</p>
+                <p><strong>Phone:</strong> {{ user?.phoneNumber || 'N/A' }}</p>
+            </div>
+            <div class="profile-actions">
+                <button class="edit-btn" (click)="editProfile()">Edit Profile</button>
+            </div>
+        </div>
+    </div>
+
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Edit Profile</h4>
+    <i type="button" class="fa-regular fa-circle-xmark text-danger" (click)="modal.close()"></i>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="updateProfile()" #profileForm="ngForm">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                <label for="userName">Username</label>
+                <input type="text" id="userName" class="form-control" [(ngModel)]="editedUser.userName" name="userName" required #userName="ngModel">
+                </div>
+        
+                <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" class="form-control" [(ngModel)]="editedUser.email" name="email" required #email="ngModel">
+                </div>
+        
+                <div class="form-group">
+                <label for="country">Country</label>
+                <input type="text" id="country" class="form-control" [(ngModel)]="editedUser.country" name="country" required #country="ngModel">
+                </div>
+                <div class="form-group">
+                <label for="profileImage">Profile Image</label>
+                <input type="file" id="profileImage" class="form-control-file" (change)="onImageChange($event)">
+                <div *ngIf="imageUrl" class="mt-3">
+                    <img [src]="imageUrl" alt="Profile Image" class="img-fluid rounded-circle" style="width: 100px; height: 100px;">
+                </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                  <label for="phoneNumber">Phone Number</label>
+                  <input type="text" id="phoneNumber" class="form-control" [(ngModel)]="editedUser.phoneNumber" name="phoneNumber" required #phoneNumber="ngModel">
+                </div>
+          
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" id="password" class="form-control" [(ngModel)]="editedUser.password" name="password" required #password="ngModel">
+                </div>
+          
+                <div class="form-group">
+                  <label for="confirmPassword">Confirm Password</label>
+                  <input type="password" id="confirmPassword" class="form-control" [(ngModel)]="editedUser.confirmPassword" name="confirmPassword" required #confirmPassword="ngModel">
+                </div>
+            </div>
+            <div class="modal-footer">
+            <button type="submit" class="btn btn-success" [disabled]="profileForm.invalid">Save Changes</button>
+            <button type="button" class="btn btn-secondary" (click)="modal.dismiss()">Cancel</button>
+            </div>
+        </div>
+    </form>
+  </div>
+</ng-template>
+    
+</div>
+
+  
+

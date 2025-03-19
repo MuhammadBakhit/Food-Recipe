@@ -1,0 +1,78 @@
+<section>
+    <div class="nav d-flex align-items-center justify-content-between">
+        <div class="one">
+            <h4 class="m-0">
+                {{isEditMode ? "Edit Recipes !" : "Add New Recipes !"}}
+            </h4>
+            <p class="m-0">you can now fill the meals easily using the table and form ,<br> click here and sill it with the table !</p>
+        </div>
+        <div class="two">
+            <button class="primary-but">All Recipes <i class="fa-solid fa-arrow-right-long ms-2"></i></button>
+        </div>
+    </div>
+
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-9 mx-auto">
+                <form [formGroup]="recipeForm" (ngSubmit)= "onSubmit(recipeForm.value)">
+                    <mat-form-field class="example-full-width w-100">
+                        <mat-label>Recipe Name</mat-label>
+                        <input 
+                            matInput
+                            placeholder="Enter Recipe Name"
+                            formControlName="name"
+                        />
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width me-5">
+                        <mat-label>Categorey</mat-label>
+                        <mat-select formControlName="categoriesIds" name="category">
+                            <mat-option *ngFor="let category of categoriesList" [value]="category.id">
+                                {{ category.name }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width ">
+                        <mat-label>Tag</mat-label>
+                    <mat-select formControlName="tagId" name="tag">
+                        <mat-option *ngFor="let tag of tagList" [value]="tag.id">
+                        {{ tag.name }}
+                        </mat-option>
+                    </mat-select>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width w-100">
+                        <mat-label>Amount</mat-label>
+                        <input 
+                            matInput 
+                            type="number" 
+                            class="example-right-align" 
+                            placeholder="0"
+                            formControlName="price"
+                        />
+                        <span matTextSuffix>EGP</span>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width w-100">
+                        <mat-label>Description <i class="fa-solid fa-star-of-life text-danger" style="font-size: 7px;"></i></mat-label>
+                        <textarea 
+                        matInput
+                        formControlName="description"></textarea>
+                    </mat-form-field> 
+                    
+                    <ngx-dropzone (change)="onSelect($event)">
+                        <ngx-dropzone-label>Drop Photo!</ngx-dropzone-label>
+                        <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
+                        </ngx-dropzone-image-preview>
+                    </ngx-dropzone>
+
+                    <div class="d-flex justify-content-end mt-4">
+                        <button class="btn btn-outline-success border border-success me-3" routerLink="../">
+                            Cancel
+                        </button>
+                        <button type="submit" class="btn btn-success">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

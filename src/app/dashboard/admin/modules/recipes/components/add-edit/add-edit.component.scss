@@ -1,0 +1,33 @@
+section{
+    .nav{
+        background-color: #F0FFEF;
+        padding: 20px;
+        border-radius: 15px;
+        margin: 0.5rem 0;
+        .one{
+            h4{
+                color: #222222dd;
+            }
+            span{
+                font-weight: 700;
+                color: #009247;
+            }
+            p{
+                color: #acacac;
+            }
+        }
+    }
+    button{
+        border: none;
+        border-radius: 8px;
+        padding: 0.5rem 1rem;
+        &.primary-but{
+            background-color: #4aa35a;
+            color: #fff;
+            text-align: center;
+            &:hover{
+                opacity: 0.7;
+            }
+        }
+    }
+}

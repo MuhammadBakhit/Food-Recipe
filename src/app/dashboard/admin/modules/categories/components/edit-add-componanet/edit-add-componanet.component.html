@@ -1,0 +1,20 @@
+<section class="">
+    <div class="container ">
+        <div class="row p-4 h-100">
+            <div class="hed d-flex justify-content-between align-items-center">
+                <h3>Add Category</h3>
+                <mat-icon mat-dialog-close=""><i class="fa-regular fa-circle-xmark text-danger"></i></mat-icon>
+            </div>
+            <div class="w-100 p-4">
+                <input [disabled]="data.isView" class="w-100" type="text" placeholder="Category Name" [(ngModel)]="data.name" name="categoryName">
+            </div>
+            <div class="row p-0">
+                <div class="col-4 text-end p-0 w-100">
+                    <button *ngIf="!data.isView" class="btn btn-success" (click)="onCloseDialog()" [mat-dialog-close]="data" name="categoryName">
+                        Save
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

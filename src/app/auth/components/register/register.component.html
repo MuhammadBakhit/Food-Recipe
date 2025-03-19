@@ -1,0 +1,97 @@
+<section>
+    <div class="container">
+        <div class="row vh-100 justify-content-center align-items-center">
+            <div class="col-md-10">
+                <div class="form">
+                    <div class="logo text-center">
+                        <img src="../../assets/imags/logo.png" alt="">
+                    </div>
+                    <div class="title">
+                        <h2>Register</h2>
+                        <p>Welcome Back! Please enter your details</p>
+                    </div>
+                    <form [formGroup]="registerForm" (ngSubmit)="sendData(registerForm)">
+                        <div class="row">
+                            <div>
+                                <ngx-dropzone (change)="onSelect($event)">
+                                    <ngx-dropzone-label>Upload Image <i class="fa-solid fa-upload"></i></ngx-dropzone-label>
+                                    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
+                                    </ngx-dropzone-image-preview>
+                                </ngx-dropzone>
+                                <p class="text-danger" *ngIf="registerForm.controls.profileImage.invalid && registerForm.controls.profileImage.touched">
+                                    Profile image is required.
+                                </p>
+                            </div>
+                    
+                            <div class="col-6">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                                    <input type="text" formControlName="userName" class="form-control" placeholder="Username"/>
+                                </div>
+                                <p class="text-danger" *ngIf="registerForm.controls.userName.invalid && registerForm.controls.userName.touched">
+                                    Username is required (Min: 3 characters).
+                                </p>
+                    
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text"><i class="fa-solid fa-flag"></i></span>
+                                    <input type="text" formControlName="country" class="form-control" placeholder="Country"/>
+                                </div>
+                                <p class="text-danger" *ngIf="registerForm.controls.country.invalid && registerForm.controls.country.touched">
+                                    Country is required.
+                                </p>
+                    
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                                    <input [type]="isHide ? 'text' : 'password'" formControlName="password" class="form-control" placeholder="Password"/>
+                                    <a class="input-group-text" (click)="isHide = !isHide">
+                                        <i [class]="isHide ? 'fa fa-eye-slash' : 'fa fa-eye'"></i>
+                                    </a>
+                                </div>
+                                <p class="text-danger" *ngIf="registerForm.controls.password.invalid && registerForm.controls.password.touched">
+                                    Password must be at least 6 characters long.
+                                </p>
+                            </div>
+                    
+                            <div class="col-6">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
+                                    <input type="email" formControlName="email" class="form-control" placeholder="Enter your E-mail"/>
+                                </div>
+                                <p class="text-danger" *ngIf="registerForm.controls.email.invalid && registerForm.controls.email.touched">
+                                    Please enter a valid email address.
+                                </p>
+                    
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
+                                    <input type="text" formControlName="phoneNumber" class="form-control" placeholder="Phone Number"/>
+                                </div>
+                                <p class="text-danger" *ngIf="registerForm.controls.phoneNumber.invalid && registerForm.controls.phoneNumber.touched">
+                                    Please enter a valid phone number (11 digits, starting with 01).
+                                </p>
+                    
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                                    <input [type]="isHide ? 'text' : 'password'" formControlName="confirmPassword" class="form-control" placeholder="Confirm Password"/>
+                                    <a class="input-group-text" (click)="isHide = !isHide">
+                                        <i [class]="isHide ? 'fa fa-eye-slash' : 'fa fa-eye'"></i>
+                                    </a>
+                                </div>
+                                <p class="text-danger" *ngIf="registerForm.controls.confirmPassword.invalid && registerForm.controls.confirmPassword.touched">
+                                    Confirm password must match the password.
+                                </p>
+                            </div>
+                        </div>
+                    
+                        <div class="text-end">
+                            <a routerLink="" class="second-link">Login Now?</a>
+                        </div>
+                    
+                        <div class="text-center">
+                            <button class="primary-but w-50">Register</button>
+                        </div>
+                    </form>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

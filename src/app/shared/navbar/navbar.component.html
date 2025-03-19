@@ -1,0 +1,23 @@
+<div class="container my-3">
+    <nav class="navbar">
+        <div class="search-container">
+          <mat-icon class="text-dark">search</mat-icon>
+          <input class="my-input" type="text" placeholder="Search Here">
+        </div>
+        <div class="user-section">
+          <img [src]="imageUrl" alt="User" class="avatar" *ngIf="user" width="40" height="40">
+          <span class="username" *ngIf="user">{{ user.userName }}</span>
+          <button mat-icon-button [matMenuTriggerFor]="profileMenu">
+            <mat-icon>keyboard_arrow_down</mat-icon>
+          </button>
+          <mat-menu #profileMenu="matMenu">
+            <button mat-menu-item [routerLink]="['/profile']">
+              <img [src]="imageUrl" style="border-radius: 50%;" alt="User Image" width="40" height="40">
+              <span class="ms-3">My Profile</span>
+            </button>
+          </mat-menu>
+          <mat-icon class="me-3">notifications</mat-icon>
+        </div>
+        
+    </nav>
+</div>

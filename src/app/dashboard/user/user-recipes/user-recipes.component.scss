@@ -1,0 +1,110 @@
+section{
+    .bage-title
+    {
+        background-image: url('../../../../assets/imags/header-bg-svg.svg');
+        background-repeat: no-repeat;
+        background-color: #009247;
+        border-radius: 15px;
+        color: #fff;
+        span{
+            font-size: 30px;
+            font-weight: 200;
+            color: #ffffffae;
+        }
+        p{
+            color: #ffffffde;
+        }
+    }
+    .nav{
+        margin: 0.5rem 0;
+        .one{
+            h4{
+                color: #222222dd;
+            }
+            p{
+                color: #acacac;
+            }
+        }
+    }
+    button{
+        border: none;
+        border-radius: 8px;
+        padding: 0.5rem 1rem;
+        &.primary-but{
+            background-color: #4aa35a;
+            color: #fff;
+            text-align: center;
+            &:hover{
+                opacity: 0.7;
+            }
+        }
+    }
+    table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        border-radius: 15px;
+        overflow: hidden;
+      }
+    thead th {
+        padding: 20px;
+        border-style: none;
+    }
+
+    
+    .search-container {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: #f8f8f8;
+        padding: 8px;
+        margin-bottom: 15px;
+        border-radius: 30px;
+        width: 100%;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+
+        mat-form-field {
+          flex: 1;
+          background: white;
+          border-radius: 30px;
+          height: 60px;
+          .mat-mdc-text-field-wrapper {
+            height: 60px !important;
+            border-radius: 30px !important;
+          }
+        }
+        .search-field {
+          min-width: 60%;
+        }
+        .tag-select {
+          width: 120px;
+        }
+        .clear-btn {
+          border: none;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 35px;
+          height: 35px;
+          border-radius: 50%;
+          color: rgb(182, 5, 5);
+          transition: 0.3s ease;
+          &:hover {
+            background: rgba(248, 110, 110, 0.1);
+          }
+          mat-icon {
+            font-size: 20px;
+            color: #888;
+          }
+        }
+        mat-icon {
+          color: gray;
+          font-size: 18px;
+        }
+      }
+      
+      
+      
+
+}

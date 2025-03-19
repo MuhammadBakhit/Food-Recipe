@@ -1,0 +1,82 @@
+<section>
+    <div class="container">
+        <div class="row vh-100 justify-content-center align-items-center">
+            <div class="col-md-8">
+                <div class="form">
+                    <div class="logo text-center">
+                        <img src="../../assets/imags/logo.png" alt="">
+                    </div>
+                    <div class="title">
+                        <h2>Reset  Password</h2>
+                        <p>Please Enter Your Otp  or Check Your Inbox</p>
+                    </div>
+                    <form [formGroup]="resetForm" (ngSubmit)="resetPassword()">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-mobile-screen-button"></i></span>
+                            <input 
+                            type="text" 
+                            formControlName="email"
+                            class="form-control" 
+                            placeholder="email" 
+                            aria-label="email" 
+                            aria-describedby="basic-addon1"
+                            />
+                        </div>
+                        <p class="text-danger" *ngIf="resetForm.controls.email.invalid && resetForm.controls.email.touched">
+                            Please enter a valid email address.
+                        </p>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
+                            <input 
+                            type="otp" 
+                            formControlName="seed"
+                            class="form-control" 
+                            placeholder="OTP" 
+                            aria-label="OTP" 
+                            aria-describedby="basic-addon1"
+                            />
+                        </div>
+                        <p class="text-danger" *ngIf="resetForm.controls.email.invalid && resetForm.controls.email.touched">
+                            Please enter a valid OTP .
+                        </p>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
+                            <input [type]="isHide ? 'password' : 'text'" 
+                            formControlName="password"
+                            class="form-control" 
+                            placeholder="New Password" 
+                            aria-label="password" 
+                            aria-describedby="basic-addon1"
+                            />
+                            <a class="input-group-text" (click)="isHide = !isHide">
+                                    <i [class]="isHide ? 'fa fa-eye-slash' : 'fa fa-eye'"></i>
+                            </a>
+                        </div>
+                        <p class="text-danger" *ngIf="resetForm.controls.password.invalid && resetForm.controls.password.touched">
+                            Please enter the password.
+                        </p>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
+                            <input [type]="isHide ? 'password' : 'text'" 
+                            formControlName="confirmPassword"
+                            class="form-control" 
+                            placeholder="Confirm New Password" 
+                            aria-label="password" 
+                            aria-describedby="basic-addon1"
+                            />
+                            <a class="input-group-text" (click)="isHide = !isHide">
+                                    <i [class]="isHide ? 'fa fa-eye-slash' : 'fa fa-eye'"></i>
+                            </a>
+                        </div>
+                        <p class="text-danger" *ngIf="resetForm.controls.password.invalid && resetForm.controls.password.touched">
+                            Please enter the password.
+                        </p>
+                        <div>
+                            <button class="primary-but w-100">Reset Password</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

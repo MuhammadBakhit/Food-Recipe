@@ -1,0 +1,38 @@
+<section>
+    <div class="container">
+        <div class="row vh-100 justify-content-center align-items-center">
+            <div class="col-md-8">
+                <div class="form">
+                    <div class="logo text-center">
+                        <img src="../../assets/imags/logo.png" alt="">
+                    </div>
+                    <div class="title">
+                        <h2>Forgot Your Password?</h2>
+                        <p>No worries! Please enter your email and we will send a password reset link</p>
+                    </div>
+                    <form [formGroup]="requestForm" (ngSubmit)="sendReset()">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-envelope"></i></span>
+                            <input 
+                                type="email" 
+                                formControlName="email"
+                                class="form-control" 
+                                placeholder="Enter your email" 
+                                aria-label="email" 
+                                aria-describedby="basic-addon1"
+                            />
+                        </div> 
+                        <p class="text-danger" *ngIf="requestForm.controls.email.invalid && requestForm.controls.email.touched">
+                            Please enter a valid email address.
+                        </p>
+                        <div>
+                            <button class="primary-but w-100" [disabled]="isLoading">
+                                {{ isLoading ? 'Please wait...' :  'Submit' }}
+                            </button>
+                        </div>  
+                    </form>
+                </div>  
+            </div>
+        </div>
+    </div>
+</section>
