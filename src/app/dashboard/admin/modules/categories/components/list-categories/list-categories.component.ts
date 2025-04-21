@@ -109,6 +109,7 @@ export class ListCategoriesComponent {
       {
         data: {
           name: category.name,
+          type: 'Category'
         }
       }
     );

@@ -1,1 +1,38 @@
-<p>verify works!</p>
+<section>
+    <div class="container">
+        <div class="row vh-100 justify-content-center align-items-center">
+            <div class="col-md-8">
+                <div class="form">
+                    <div class="logo text-center">
+                        <img src="../../../../assets/imags/logo.png" alt="Logo">
+                    </div>
+                    <div class="title">
+                        <h2>Verify Your Email</h2>
+                        <p>Please enter the verification code sent to your email.</p>
+                    </div>
+                    <form [formGroup]="verifyForm" (ngSubmit)="verifyCode()">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-key"></i></span>
+                            <input 
+                                type="text" 
+                                formControlName="verificationCode"
+                                class="form-control" 
+                                placeholder="Enter your verification code" 
+                                aria-label="code" 
+                                aria-describedby="basic-addon1"
+                            />
+                        </div> 
+                        <p class="text-danger" *ngIf="verifyForm.controls.verificationCode.invalid && verifyForm.controls.verificationCode.touched">
+                            Please enter a valid verification code.
+                        </p>
+                        <div>
+                            <button class="primary-but w-100" [disabled]="isLoading">
+                                {{ isLoading ? 'Please wait...' : 'Verify' }}
+                            </button>
+                        </div>  
+                    </form>
+                </div>  
+            </div>
+        </div>
+    </div>
+</section>

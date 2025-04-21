@@ -35,4 +35,11 @@ export class AuthService {
     const body = { email, otp, token, newPassword }; 
     return this._HttpClient.post('Users/Reset', body);
   }
+  verifyEmail(email: string , code: string): Observable<any> {
+    return this._HttpClient.put('Users/verify', { 
+        email: email, 
+        code: code 
+    });
+}
+  
 }

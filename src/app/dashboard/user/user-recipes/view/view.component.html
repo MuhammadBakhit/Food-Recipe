@@ -1,17 +1,52 @@
-<div class="text-end" mat-dialog-content>
-    <div class="navbar d-flex justify-content-between align-items-center ">    
-        <h6 class="mt-1" style="color: #494949;">{{data.name}}</h6>
-        <mat-icon mat-dialog-close=""><i class="fa-regular fa-circle-xmark text-danger"></i></mat-icon>
-    </div>
-    <div class="text-center">
-        <div class="img">
-            <img class="w-50" [src]="imageSrc + data.imagePath" alt="">    
-        </div>
-        <p class="text-black-50">{{data.description}}</p>
-    </div>
-</div>
-<div mat-dialog-actions class="justify-content-end p-4 border-top">
-    <button class="btn btn-outline-success" [mat-dialog-close]="data" name="categoryName">
-        Favorite
+<div class="p-4" style="width: 100%; max-width: 700px; margin: auto; position: relative; overflow: hidden;">
+  
+    <!-- زرار X للخروج -->
+    <button mat-dialog-close class="close-btn">
+      <i class="fa-solid fa-xmark text-danger fs-4"></i>
     </button>
-</div>
+  
+    <!-- العنوان -->
+    <h4 class="text-center mb-3 fw-bold" style="color: #1F263E; font-size: 1.5rem; font-weight: bold;">{{ data.name }}</h4>
+  
+    <!-- الصورة -->
+    <div class="text-center mb-3">
+      <img [src]="data.imagePath ? imageSrc + data.imagePath : '../../../../../../../assets/imags/noodles-with-sushi.jpeg'" alt="Item Image" class="rounded-3 shadow" 
+           style="width: 50%; max-width: 200px; height: auto; object-fit: contain;">
+    </div>
+  
+    <!-- السعر -->
+    <div class="d-flex justify-content-between mb-4">
+      <span class="fw-semibold" style="color: #4aa35a; font-size: 1rem; font-weight: bold;">Price:</span>
+      <span class="text-muted">{{ data.price }} EGP</span>
+    </div>
+  
+    <!-- التاج -->
+    <div class="d-flex justify-content-between mb-4">
+      <span class="fw-semibold" style="color: #4aa35a; font-size: 1rem; font-weight: bold;">Tag:</span>
+      <span class="text-muted">{{ data.tag?.name }}</span>
+    </div>
+  
+    <!-- التصنيفات -->
+    <div class="d-flex justify-content-between mb-4">
+      <span class="fw-semibold d-block mb-1" style="color: #4aa35a; font-size: 1rem; font-weight: bold;">Categories:</span>
+      <div class="d-flex flex-wrap gap-2">
+        <span *ngFor="let cat of data.category" class="badge rounded-pill" style="background-color: #1F263E;">
+          {{ cat.name }}
+        </span>
+      </div>
+    </div>
+  
+    <!-- الوصف -->
+    <div class="d-flex justify-content-between mb-4">
+      <span class="fw-semibold d-block mb-1" style="color: #4aa35a; font-size: 1rem; font-weight: bold;">Description:</span>
+      <p class="text-muted mb-0">{{ data.description }}</p>
+    </div>
+  
+    <!-- زرار Add To Favorites -->
+    <div class="text-end">
+      <button class="btn btn-success px-4 py-2" (click)="onAddToFav(data.recipe.id)">
+        <i class="fa-solid fa-heart me-2"></i> Add To Favorites
+      </button>
+    </div>
+  </div>
+  

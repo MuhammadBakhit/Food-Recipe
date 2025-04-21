@@ -9,3 +9,16 @@ section{
     margin: 20px auto;
     border-radius: 50%;
 }
+ngx-dropzone-image-preview {
+    width: 140px !important;
+    height: 140px !important;
+    border-radius: 50% !important;
+    overflow: hidden; /* عشان أي حاجة زيادة تتقص */
+    padding: 0 !important;
+  }
+  ngx-dropzone-image-preview img {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 50% !important;
+    object-fit: cover;
+  }

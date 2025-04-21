@@ -41,7 +41,8 @@
         <tbody>
             <tr *ngFor="let user of usersList">
                 <td>{{ user?.userName }}</td>
-                <td class="w-25"><img [src]="imageSrc + user.imagePath" class="w-50" alt=""></td>
+                <td class="w-25"><img [src]="user.imagePath ? imageSrc + user.imagePath : '../../../../../../../assets/imags/mohamed.jpeg'" 
+                    alt="Image"  class="w-25 rounded-3" alt=""></td>
                 <td>{{ user?.country }}</td>
                 <td>{{ user?.email }}</td>
                 <td>{{ user?.phoneNumber || 'N/A' }}</td>
@@ -51,11 +52,11 @@
                         <mat-icon>more_vert</mat-icon>
                         </button>
                         <mat-menu #menu="matMenu">
-                        <button  mat-menu-item>
+                        <button  mat-menu-item (click)="onViewDialog(user)">
                             <mat-icon style="color: #4aa35a;">visibility</mat-icon>
                             <span>View</span>
                         </button>
-                        <button  mat-menu-item>
+                        <button  mat-menu-item (click)="onDeleteDialog(user)">
                             <mat-icon style="color: #4aa35a;">delete</mat-icon>
                             <span>Delete</span>
                         </button>
@@ -63,8 +64,6 @@
                 </td>
             </tr>
         </tbody>
-        
-        
     </table>
     </div>
-    </section>
+</section>

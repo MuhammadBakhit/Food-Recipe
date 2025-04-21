@@ -6,6 +6,7 @@ import { UserRecipesService } from '../services/user-recipes.service';
 import { ViewComponent } from './view/view.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ICategoryData } from '../../admin/modules/categories/models/categories';
+import { IRecipe } from './interface/view';
 
 
 @Component({
@@ -64,16 +65,22 @@ export class UserRecipesComponent implements OnInit{
   }
 
 
-    onViewDialog(category:ICategoryData): void{
-      const dialogRef = this._MatDialog.open(ViewComponent,
-        {
-          data: {
-            name: category.name,
-            imagePath: category.imagePath,
-            description: category.description,
-          }
-        }
-      );
-    }
+  onViewDialog(recipe: IRecipe): void {
+    const dialogRef = this._MatDialog.open(ViewComponent, {
+      width: '600px',
+      height: '550px',
+      data: {
+        recipe: recipe,
+        name: recipe.name,
+        imagePath: recipe.imagePath,
+        description: recipe.description,
+        price: recipe.price,
+        tag: recipe.tag,
+        category: recipe.category
+      }
+    });
+    dialogRef.afterClosed().subscribe(() => {
+    });
+  }
 
 }

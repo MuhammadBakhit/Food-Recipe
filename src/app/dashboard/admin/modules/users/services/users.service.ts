@@ -20,4 +20,8 @@ export class UsersService {
     return this._HttpClient.get('/Users/currentUser');
   }
 
+  onDeleteUser(id:number|undefined):Observable<any>{
+    return this._HttpClient.delete(`Users/${id}`);
+  }
+
 }

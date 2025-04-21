@@ -1,0 +1,35 @@
+<div mat-dialog-content class="dialog-content">
+<div mat-dialog-actions class="dialog-actions">
+    <i class="btn-close fa-solid fa-xmark" mat-dialog-close></i> <!-- أيقونة X من Font Awesome -->
+</div>
+    <!-- عرض صورة المستخدم -->
+<div class="img-container">
+    <img *ngIf="data.imagePath; else defaultImage" class="rounded-circle" [src]="getFullImagePath(data.imagePath)" alt="User Image" style="width: 150px; height: 150px; object-fit: cover;">
+    <ng-template #defaultImage>
+        <img class="rounded-circle" src="../../../../../../../assets/imags/mohamed.jpeg" alt="Default Image" style="width: 150px; height: 150px; object-fit: cover;">
+    </ng-template>
+</div>
+
+  <!-- اسم المستخدم -->
+  <h2 class="user-name">{{ data.userName }}</h2>
+
+  <!-- تفاصيل المستخدم -->
+  <div class="details">
+    <div class="detail-item">
+      <span class="label">Email:</span>
+      <span class="value">{{ data.email }}</span>
+    </div>
+    <div class="detail-item">
+      <span class="label">Country:</span>
+      <span class="value">{{ data.country }}</span>
+    </div>
+    <div class="detail-item">
+      <span class="label">Phone Number:</span>
+      <span class="value">{{ data.phoneNumber }}</span>
+    </div>
+    <div class="detail-item">
+      <span class="label">Group:</span>
+      <span class="value">{{ data.group?.name }}</span>
+    </div>
+  </div>
+</div>
